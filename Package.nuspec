@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SnippetSpeed</id>
+    <version>0.0.1</version>
+    <authors>Thomas Sobieck</authors>
+    <owners>Thomas Sobieck</owners>
+    <licenseUrl>https://github.com/Sobieck00/SnippetSpeed/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Sobieck00/SnippetSpeed</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/RasicN/random-test-values/master/random-icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is just a project to performance test small pieces of code.</description>
+    <releaseNotes>Version 1</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags></tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="SnippetSpeed\SnippetSpeed\bin\Release\SnippetSpeed.dll" target="lib\net46\SnippetSpeed.dll" />
+  </files>
+</package>
