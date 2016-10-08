@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Linq;
 using System;
 
-namespace SnippetSpeedTest
+namespace SnippetSpeed
 {
     internal static class RegisterOfTypes
     {

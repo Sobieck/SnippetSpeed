@@ -9,7 +9,7 @@ namespace SnippetSpeed.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            1.Should().Be(2);
+            1.Should().Be(1);
         }
     }
 }
