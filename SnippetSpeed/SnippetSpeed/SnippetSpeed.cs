@@ -1,12 +1,20 @@
-﻿using System;
+﻿using SnippetSpeed.Implementations;
+using SnippetSpeed.Interfaces;
+using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace SnippetSpeed
 {
-    public class SnippetSpeed
+    public static class SnippetSpeed
     {
+        private static IConsoleWrapper console;
+
+        static SnippetSpeed()
+        {
+            console = new ConsoleWrapper();
+        }
+
         public static void Run()
         {
             Console.WriteLine("Please select the number from the following list of possible tests:");

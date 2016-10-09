@@ -16,6 +16,14 @@ namespace SnippetSpeed
             AddProperlyNamedAndOrderedItemsToRegistryOfTypes(temporaryDictionaryOfTypes);
         }
 
+        public static Dictionary<string, SnippetSpeedBase> DictoraryOfTypes
+        {
+            get
+            {
+                return dictoraryOfTypes;
+            }
+        }
+
         private static void AddProperlyNamedAndOrderedItemsToRegistryOfTypes(Dictionary<string, SnippetSpeedBase> temporaryDictionaryOfTypes)
         {
             var tempList = temporaryDictionaryOfTypes.OrderBy(x => x.Value.TypeOfTest).ToList();
@@ -46,14 +54,6 @@ namespace SnippetSpeed
             }
 
             return temporaryDictionaryOfTypes;
-        }
-
-        public static Dictionary<string, SnippetSpeedBase> DictoraryOfTypes
-        {
-            get
-            {
-                return dictoraryOfTypes;
-            }
         }
     }
 }
