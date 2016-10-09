@@ -1,5 +1,4 @@
-﻿using SnippetSpeed;
-using System;
+﻿using SnippetSpeed.Interfaces;
 
 namespace SnippetSpeed.Tests.TypesForRegistryOfTypesTest
 {
@@ -7,9 +6,12 @@ namespace SnippetSpeed.Tests.TypesForRegistryOfTypesTest
     {
         public override string TypeOfTest => "x";
 
+        internal IConsoleWrapper console;
+
         public override int TestableAct()
         {
-            throw new NotImplementedException();
+            console.WriteLine(TypeOfTest);
+            return 1;
         }
     }
 }

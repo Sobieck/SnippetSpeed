@@ -41,12 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\ConsoleWrapper.cs" />
+    <Compile Include="Implementations\CsvResultWriter.cs" />
+    <Compile Include="Implementations\SnippetIterator.cs" />
     <Compile Include="Interfaces\IConsoleWrapper.cs" />
+    <Compile Include="Interfaces\IResultWriter.cs" />
+    <Compile Include="Interfaces\ISnippetIterator.cs" />
     <Compile Include="NonBlockingConsole.cs" />
     <Compile Include="SnippetSpeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterOfTypes.cs" />
     <Compile Include="SnippetSpeedBase.cs" />
+    <Compile Include="SnippetSpeedSettings.cs" />
+    <Compile Include="SnippetSpeedTestResult.cs" />
     <Compile Include="TestableSnippetSpeedBase.cs" />
   </ItemGroup>
   <ItemGroup />
