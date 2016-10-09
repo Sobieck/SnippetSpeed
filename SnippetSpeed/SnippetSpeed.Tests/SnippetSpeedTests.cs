@@ -33,16 +33,14 @@ namespace SnippetSpeed.Tests
 
             SnippetSpeed.Settings = new SnippetSpeedSettings { LengthOfOneTestRound = new TimeSpan(0, lengthOfTests, 0) };
 
-            var snippetSpeed = new SnippetSpeed();
-
-            snippetSpeed.Console = consoleWrapper;
-            snippetSpeed.Iterator = iterator;
-            snippetSpeed.ResultWriter = resultWriter;
+            SnippetSpeed.Console = consoleWrapper;
+            SnippetSpeed.Iterator = iterator;
+            SnippetSpeed.ResultWriter = resultWriter;
 
             A.CallTo(() => consoleWrapper.ReadLine()).Returns(usersInput);
             A.CallTo(() => iterator.Iterate(usersInput)).Returns(iteratorResults);
 
-            snippetSpeed.Run();
+            SnippetSpeed.Run();
         }
 
         [TestMethod]

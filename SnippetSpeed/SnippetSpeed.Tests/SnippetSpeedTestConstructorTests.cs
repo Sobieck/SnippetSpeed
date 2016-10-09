@@ -7,31 +7,28 @@ namespace SnippetSpeed.Tests
     [TestClass]
     public class SnippetSpeedTestConstructorTests
     {
-        private SnippetSpeed snippetSpeed;
-
         [TestInitialize]
         public void BeforeEach()
         {
             SnippetSpeed.Settings = null;
-            snippetSpeed = new SnippetSpeed();
         }
 
         [TestMethod]
         public void TheConsoleShouldBeAConsoleWrapper()
         {
-            snippetSpeed.Console.Should().BeOfType<ConsoleWrapper>();
+            SnippetSpeed.Console.Should().BeOfType<ConsoleWrapper>();
         }
 
         [TestMethod]
         public void TheIteratorShouldBeASnippetIterator()
         {
-            snippetSpeed.Iterator.Should().BeOfType<SnippetIterator>();
+            SnippetSpeed.Iterator.Should().BeOfType<SnippetIterator>();
         }
 
         [TestMethod]
         public void TheResultsWriterShouldBeASCsvResultsWriter()
         {
-            snippetSpeed.ResultWriter.Should().BeOfType<CsvResultWriter>();
+            SnippetSpeed.ResultWriter.Should().BeOfType<CsvResultWriter>();
         }
 
         [TestMethod]

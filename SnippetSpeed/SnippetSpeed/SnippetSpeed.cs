@@ -5,14 +5,14 @@ using System.Linq;
 
 namespace SnippetSpeed
 {
-    public class SnippetSpeed
+    public static class SnippetSpeed
     {
         private static SnippetSpeedSettings settings;
 
-        internal IConsoleWrapper Console { get; set; }
-        internal ISnippetIterator Iterator { get; set; }
+        internal static IConsoleWrapper Console { get; set; }
+        internal static ISnippetIterator Iterator { get; set; }
 
-        public IResultWriter ResultWriter { get; set; }
+        public static IResultWriter ResultWriter { get; set; }
 
         public static SnippetSpeedSettings Settings
         {
@@ -30,7 +30,7 @@ namespace SnippetSpeed
             set { settings = value; }
         }
                 
-        public SnippetSpeed()
+        static SnippetSpeed()
         {
             Console = new ConsoleWrapper();
             Iterator = new SnippetIterator();
@@ -38,7 +38,7 @@ namespace SnippetSpeed
             ResultWriter = new CsvResultWriter();
         }
 
-        public void Run()
+        public static void Run()
         {
             Console.WriteLine("Please select the number from the following list of possible tests:");
             Console.WriteLine($"(a) ALL TESTS. {RegisterOfTypes.DictoraryOfTypes.Count() * Settings.LengthOfOneTestRound.TotalMinutes} minute running time");
