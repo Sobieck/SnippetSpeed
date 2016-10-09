@@ -2,6 +2,7 @@
 using SnippetSpeed.Interfaces;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace SnippetSpeed
@@ -64,7 +65,6 @@ namespace SnippetSpeed
                 NonBlockingConsole.MillisecondsElapsed = sw.Elapsed.TotalMilliseconds;
             }
 
-#if (!DEBUG)
             var averageTime = timeInMillisecondsToRun / (float)count;
 
             var binaryVersion = File.GetLastWriteTime(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString("yyyy.MM.dd.HHmm");
@@ -75,7 +75,6 @@ namespace SnippetSpeed
             {
                 file.WriteLine(lineToWrite);
             }
-#endif
         }
     }
 }
