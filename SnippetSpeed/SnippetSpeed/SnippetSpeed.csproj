@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\ConsoleWrapper.cs" />
+    <Compile Include="Interfaces\IConsoleWrapper.cs" />
     <Compile Include="NonBlockingConsole.cs" />
     <Compile Include="SnippetSpeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -47,6 +49,7 @@
     <Compile Include="SnippetSpeedBase.cs" />
     <Compile Include="TestableSnippetSpeedBase.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
