@@ -1,6 +1,6 @@
 ﻿namespace SnippetSpeed
 {
-    public abstract class SpeedTestBase
+    public abstract class SnippetSpeedBase
     {
         public abstract void Act();
 

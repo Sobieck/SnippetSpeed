@@ -1,6 +1,6 @@
 ﻿namespace SnippetSpeed
 {
-    public abstract class TestableSpeedTestBase<T> : SpeedTestBase where T : class
+    public abstract class TestableSnippetSpeedBase<T> : SnippetSpeedBase
     {
         public abstract T TestableAct();
 
