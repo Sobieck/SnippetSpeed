@@ -11,6 +11,7 @@ namespace SnippetSpeed.Tests
         public void BeforeEach()
         {
             SnippetSpeed.Settings = null;
+            SnippetSpeed.Console = null;
         }
 
         [TestMethod]
