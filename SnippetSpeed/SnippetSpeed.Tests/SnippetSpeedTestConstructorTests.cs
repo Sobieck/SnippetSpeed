@@ -12,6 +12,8 @@ namespace SnippetSpeed.Tests
         {
             SnippetSpeed.Settings = null;
             SnippetSpeed.Console = null;
+            SnippetSpeed.Iterator = null;
+            SnippetSpeed.ResultWriter = null;
         }
 
         [TestMethod]

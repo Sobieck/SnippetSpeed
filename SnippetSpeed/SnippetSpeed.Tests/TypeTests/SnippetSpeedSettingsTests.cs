@@ -12,7 +12,7 @@ namespace SnippetSpeed.Tests
         private DateTime startDateTime;
 
         [TestInitialize]
-        public void Initialize()
+        public void BeforeEach()
         {
             startDateTime = RandomValue.DateTime();
 

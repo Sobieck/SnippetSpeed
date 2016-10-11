@@ -9,6 +9,21 @@ namespace SnippetSpeed
     {
         private static SnippetSpeedSettings settings;
         private static IConsoleWrapper console;
+        private static ISnippetIterator iterator;
+        private static IResultWriter resultWriter;
+
+        public static IResultWriter ResultWriter
+        {
+            get
+            {
+                if(resultWriter == null)
+                {
+                    resultWriter = new CsvResultWriter();
+                }
+                return resultWriter;
+            }
+            set { resultWriter = value; }
+        }
 
         internal static IConsoleWrapper Console
         {
@@ -23,9 +38,18 @@ namespace SnippetSpeed
             set { console = value; }
         }
 
-        internal static ISnippetIterator Iterator { get; set; }
-
-        public static IResultWriter ResultWriter { get; set; }
+        internal static ISnippetIterator Iterator
+        {
+            get
+            {
+                if(iterator == null)
+                {
+                    iterator = new SnippetIterator();
+                }
+                return iterator;
+            }
+            set { iterator = value; }
+        }
 
         public static SnippetSpeedSettings Settings
         {
@@ -39,13 +63,6 @@ namespace SnippetSpeed
                 return settings;
             }
             set { settings = value; }
-        }
-                
-        static SnippetSpeed()
-        {
-            Iterator = new SnippetIterator();
-
-            ResultWriter = new CsvResultWriter();
         }
 
         public static void Run()

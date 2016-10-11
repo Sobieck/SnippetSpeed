@@ -11,7 +11,7 @@ namespace SnippetSpeed.Tests
     public class RegisterOfTypesTests
     {
         [ClassInitialize]
-        public static void Initialize(TestContext ctx)
+        public static void BeforeEach(TestContext ctx)
         {
             SetEntryAssembly(Assembly.GetExecutingAssembly());
         }
