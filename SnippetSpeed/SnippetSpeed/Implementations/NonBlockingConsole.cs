@@ -6,11 +6,11 @@ namespace SnippetSpeed
 {
     internal class NonBlockingConsole : INonBlockingConsole
     {
-        public static ulong Iterations { private get; set; }
+        public ulong Iterations { private get; set; }
 
-        public static int TimeInMillisecondsToRun { private get; set; }
+        public int TimeInMillisecondsToRun { private get; set; }
 
-        public static double MillisecondsElapsed { private get; set; }
+        public double MillisecondsElapsed { private get; set; }
 
         public NonBlockingConsole()
         {
