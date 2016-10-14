@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SnippetSpeed.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace SnippetSpeed
 {
-    internal static class NonBlockingConsole
+    internal class NonBlockingConsole : INonBlockingConsole
     {
         public static ulong Iterations { private get; set; }
 
@@ -11,7 +12,7 @@ namespace SnippetSpeed
 
         public static double MillisecondsElapsed { private get; set; }
 
-        static NonBlockingConsole()
+        public NonBlockingConsole()
         {
             Task.Run(() =>
             {

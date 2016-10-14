@@ -6,6 +6,8 @@ namespace SnippetSpeed.Implementations
 {
     internal class SnippetIterator : ISnippetIterator
     {
+
+
         public ICollection<SnippetSpeedTestResult> Iterate(string usersInput)
         {
             throw new NotImplementedException();
@@ -25,7 +27,7 @@ namespace SnippetSpeed.Implementations
             //}
         }
 
-        private static void RunTestScenario(string selection)
+        private static SnippetSpeedTestResult RunTestScenario(string selection)
         {
             //var dictonaryItemToActOn = RegisterOfTypes.DictoraryOfTypes.First(x => x.Key.Contains(selection));
 
@@ -59,6 +61,8 @@ namespace SnippetSpeed.Implementations
             //{
             //    file.WriteLine(lineToWrite);
             //}
+
+            return null;
         }
     }
 }
