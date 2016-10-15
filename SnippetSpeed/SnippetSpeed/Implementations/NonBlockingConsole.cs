@@ -10,7 +10,7 @@ namespace SnippetSpeed
 
         public TimeSpan TimeElapsed { private get; set; }
 
-        public NonBlockingConsole()
+        public void Run()
         {
             Task.Run(() =>
             {

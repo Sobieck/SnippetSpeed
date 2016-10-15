@@ -66,6 +66,13 @@ namespace SnippetSpeed.Tests
         }
 
         [TestMethod]
+        public void TheNonblockingConsoleShouldBeCalledToRun()
+        {
+            RunIterateWithOnlyOneTest();
+            nonBlockingConsole.CalledRun.Should().BeTrue();
+        }
+
+        [TestMethod]
         public void TheConsoleInTheActionShouldMatchTheNumberOfTimesRunInTheOutput()
         {
             RegisterOfTypes.DictoraryOfTypes[KeyOfItem1] = new ASpeedTest3();
@@ -166,6 +173,7 @@ namespace SnippetSpeed.Tests
         {
             public ulong SumOfIterations { get; set; }
             public List<TimeSpan> TimesElapsed = new List<TimeSpan>();
+            public bool CalledRun = false;
 
             public ulong Iterations
             {
@@ -181,6 +189,11 @@ namespace SnippetSpeed.Tests
                 {
                     TimesElapsed.Add(value);
                 }
+            }
+
+            public void Run()
+            {
+                CalledRun = true;
             }
         }
     }

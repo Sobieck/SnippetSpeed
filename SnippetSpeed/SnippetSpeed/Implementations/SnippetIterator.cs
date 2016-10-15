@@ -65,6 +65,8 @@ namespace SnippetSpeed.Implementations
             var testObject = testCase.Value;
 
             var sw = Stopwatch.StartNew();
+                        
+            nonBlockingConsole.Run();
 
             while (sw.Elapsed < timeToRun)
             {

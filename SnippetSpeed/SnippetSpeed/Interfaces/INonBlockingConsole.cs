@@ -7,5 +7,7 @@ namespace SnippetSpeed.Interfaces
         ulong Iterations { set; }
 
         TimeSpan TimeElapsed { set; }
+
+        void Run();
     }
 }
