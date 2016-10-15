@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetSpeed", "SnippetSpee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnippetSpeed.Tests", "SnippetSpeed.Tests\SnippetSpeed.Tests.csproj", "{A45D2DB9-74B1-4742-B9BC-3497E43F6DE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{86B0C623-D34D-437B-A8D4-CB257C9B1591}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{A45D2DB9-74B1-4742-B9BC-3497E43F6DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A45D2DB9-74B1-4742-B9BC-3497E43F6DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A45D2DB9-74B1-4742-B9BC-3497E43F6DE6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86B0C623-D34D-437B-A8D4-CB257C9B1591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86B0C623-D34D-437B-A8D4-CB257C9B1591}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86B0C623-D34D-437B-A8D4-CB257C9B1591}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86B0C623-D34D-437B-A8D4-CB257C9B1591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
