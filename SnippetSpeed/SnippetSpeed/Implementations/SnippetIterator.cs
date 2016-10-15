@@ -22,29 +22,31 @@ namespace SnippetSpeed.Implementations
                                     
             if (usersInput.ToLower() == "a")
             {
-                var testNumber = 0;
-                while (testNumber < RegisterOfTypes.DictoraryOfTypes.Count())
-                {
-                    var currentTestToRun = RegisterOfTypes.DictoraryOfTypes.ElementAt(testNumber);
-                    RunTestAndAddResultToList(result, currentTestToRun);
-                    testNumber++;
-                }
-                return result;
+                return RunAllSpeedTests(result);
             }
-
-            var testToRun = RegisterOfTypes.DictoraryOfTypes.FirstOrDefault(x => x.Key.Contains(usersInput));
-
-            int y;
-            if (testToRun.Key == null || int.TryParse(usersInput, out y) == false)
+                        
+            if (IsValidUserInput(usersInput))
             {
                 console.WriteLine("There is no record of that test to run. Did you mistype?");
                 return result;
             }
             else
             {
-                RunTestAndAddResultToList(result, testToRun);
+                RunTestAndAddResultToList(result, GetTestToRun(usersInput));
             }
 
+            return result;
+        }
+        
+        private ICollection<SnippetSpeedTestResult> RunAllSpeedTests(List<SnippetSpeedTestResult> result)
+        {
+            var testNumber = 0;
+            while (testNumber < RegisterOfTypes.DictoraryOfTypes.Count())
+            {
+                var currentTestToRun = RegisterOfTypes.DictoraryOfTypes.ElementAt(testNumber);
+                RunTestAndAddResultToList(result, currentTestToRun);
+                testNumber++;
+            }
             return result;
         }
 
@@ -58,11 +60,24 @@ namespace SnippetSpeed.Implementations
         {
             console.WriteLine("\nRunning: " + testCase.Key);
 
-            ulong count = 0;
+            var testObject = testCase.Value;
 
+            var count = IterateOverTestObject(testObject);
+
+            return new SnippetSpeedTestResult
+            {
+                Interations = count,
+                NameOfClass = testObject.GetType().Name,
+                TypeOfTest = testObject.TypeOfTest,
+                LengthOfTest = SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound
+            };
+        }
+
+        private ulong IterateOverTestObject(SnippetSpeedBase testObject)
+        {
             var timeToRun = SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound;
 
-            var testObject = testCase.Value;
+            ulong count = 0;
 
             var sw = Stopwatch.StartNew();
 
@@ -74,13 +89,21 @@ namespace SnippetSpeed.Implementations
                 nonBlockingConsole.TimeElapsed = sw.Elapsed;
             }
 
-            return new SnippetSpeedTestResult
-            {
-                Interations = count,
-                NameOfClass = testObject.GetType().Name,
-                TypeOfTest = testObject.TypeOfTest,
-                LengthOfTest = timeToRun
-            };
+            return count;
+        }
+
+        private bool IsValidUserInput(string usersInput)
+        {
+            KeyValuePair<string, SnippetSpeedBase> testToRun = GetTestToRun(usersInput);
+
+            int y;
+
+            return testToRun.Key == null || int.TryParse(usersInput, out y) == false;
+        }
+
+        private static KeyValuePair<string, SnippetSpeedBase> GetTestToRun(string usersInput)
+        {
+            return RegisterOfTypes.DictoraryOfTypes.FirstOrDefault(x => x.Key.Contains(usersInput));
         }
     }
 }
