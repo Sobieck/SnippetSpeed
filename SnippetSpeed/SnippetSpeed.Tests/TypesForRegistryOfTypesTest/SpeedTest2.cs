@@ -8,7 +8,7 @@ namespace SnippetSpeed.Tests.TypesForRegistryOfTypesTest
 
         public override void Act()
         {
-            throw new NotImplementedException();
+            var asdf = "asd";
         }
     }
 }
