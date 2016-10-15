@@ -20,7 +20,7 @@ namespace SnippetSpeed
 
                     if(Iterations != 0)
                     {
-                        var output = string.Format("\rRun: {0:N0} times | MS Left {1:mm}:{1:ss}:{1:ff}", Iterations, timeLeft);
+                        var output = string.Format("\rRun: {0:N0} times | Time Left {1:mm}:{1:ss}:{1:ff}", Iterations, timeLeft);
                         Console.Out.WriteAsync(output);
                     }
                 }

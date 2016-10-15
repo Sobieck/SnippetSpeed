@@ -28,10 +28,15 @@ namespace SnippetSpeed.Tests
         [TestMethod]
         public void TheDefaultSaveFileShouldBeResultDotCsv()
         {
-            Result.StartOfExecution = startDateTime;
+            Result.OutputWritePath.Should().Be(SnippetSpeedConsoleInterface.Settings.OutputWritePath);
+        }
 
+        [TestMethod]
+        public void ItShouldHaveTheRightFileName()
+        {
+            Result.StartOfExecution = startDateTime;
             var localTime = startDateTime.ToLocalTime().ToString().Replace(' ', '-');
-            Result.OutputWritePath.Should().Be($"result-{localTime}.csv");
+            Result.OutputFileName.Should().Be($"result-{localTime}.csv");
         }
 
         [TestMethod]

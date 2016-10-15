@@ -18,6 +18,13 @@ namespace SnippetSpeed.Tests
 
         internal CsvResultWriter Sut { get; private set; }
 
+        [ClassInitialize]
+        public static void BeforeAll(TestContext testContext)
+        {
+            RegisterOfTypesTests.BeforeAll(testContext);
+
+        }
+
         [TestInitialize]
         public void BeforeEach()
         {
@@ -44,7 +51,7 @@ namespace SnippetSpeed.Tests
         [TestMethod]
         public void ThePathShouldBeThePathSetOnTheSettings()
         {
-            fileWrapper.Path.Should().Be(SnippetSpeedConsoleInterface.Settings.OutputWritePath);
+            fileWrapper.Path.Should().Contain(SnippetSpeedConsoleInterface.Settings.OutputWritePath+"\\"+SnippetSpeedConsoleInterface.Settings.OutputFileName);
         }
 
         [TestMethod]
