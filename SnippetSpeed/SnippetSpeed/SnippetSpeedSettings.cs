@@ -38,7 +38,7 @@ namespace SnippetSpeed
                 }
                 else
                 {
-                    var time = StartOfExecution.ToLocalTime().ToString().Replace(' ', '-');
+                    var time = StartOfExecution.ToLocalTime().ToString().Replace(' ', '-').Replace('/', '-');
                     return $"result-{time}.csv";
                 }
             }
