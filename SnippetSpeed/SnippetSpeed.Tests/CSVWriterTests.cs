@@ -51,7 +51,7 @@ namespace SnippetSpeed.Tests
         [TestMethod]
         public void ThePathShouldBeThePathSetOnTheSettings()
         {
-            fileWrapper.Path.Should().Contain(SnippetSpeedConsoleInterface.Settings.OutputWritePath+"\\"+SnippetSpeedConsoleInterface.Settings.OutputFileName);
+            fileWrapper.Path.Should().Contain(SnippetSpeedConsoleInterface.Settings.OutputPathAndFileName);
         }
 
         [TestMethod]

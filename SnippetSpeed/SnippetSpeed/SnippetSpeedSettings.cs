@@ -1,48 +1,34 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
 
 namespace SnippetSpeed
 {
     public class SnippetSpeedSettings
     {
-        private string outputWritePath;
-        private string outputFileName;
+        private string outputPathAndFileName;
 
         public TimeSpan LengthOfOneTestRound { get; set; }
 
-        public string OutputWritePath
+        public string OutputPathAndFileName
         {
             get
             {
-                if (outputWritePath != null)
+                if (outputPathAndFileName != null)
                 {
-                    return outputWritePath;
+                    return outputPathAndFileName;
                 }
                 else
                 {
-                    var pathOfProject = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-                    return pathOfProject;
-                }
-            }
-            set { outputWritePath = value; }
-        }
+                    var time = StartOfExecution
+                        .ToLocalTime()
+                        .ToString()
+                        .Replace(' ', '-')
+                        .Replace('/', '-')
+                        .Replace(':','-');
 
-        public string OutputFileName
-        {
-            get
-            {
-                if (outputFileName != null)
-                {
-                    return outputFileName;
-                }
-                else
-                {
-                    var time = StartOfExecution.ToLocalTime().ToString().Replace(' ', '-').Replace('/', '-');
                     return $"result-{time}.csv";
                 }
             }
-            set { outputFileName = value; }
+            set { outputPathAndFileName = value; }
         }
 
         internal DateTime StartOfExecution { get; set; }

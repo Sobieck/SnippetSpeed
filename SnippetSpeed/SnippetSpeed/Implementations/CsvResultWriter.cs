@@ -21,7 +21,7 @@ namespace SnippetSpeed.Implementations
                 writeList.Add($"{result.NameOfClass},{result.TypeOfTest},{result.Interations},{result.AverageTimeOfIterationInNanoseconds},{(int)result.LengthOfTest.TotalMilliseconds}");
             }
 
-            fileWrapper.WriteAllLines(SnippetSpeedConsoleInterface.Settings.OutputWritePath + "\\" + SnippetSpeedConsoleInterface.Settings.OutputFileName, writeList.ToArray());
+            fileWrapper.WriteAllLines(SnippetSpeedConsoleInterface.Settings.OutputPathAndFileName, writeList.ToArray());
         }
     }
 }

@@ -26,17 +26,11 @@ namespace SnippetSpeed.Tests
         }
 
         [TestMethod]
-        public void TheDefaultSaveFileShouldBeResultDotCsv()
-        {
-            Result.OutputWritePath.Should().Be(SnippetSpeedConsoleInterface.Settings.OutputWritePath);
-        }
-
-        [TestMethod]
         public void ItShouldHaveTheRightFileName()
         {
             Result.StartOfExecution = startDateTime;
-            var localTime = startDateTime.ToLocalTime().ToString().Replace(' ', '-').Replace('/','-');
-            Result.OutputFileName.Should().Be($"result-{localTime}.csv");
+            var localTime = startDateTime.ToLocalTime().ToString().Replace(' ', '-').Replace('/','-').Replace(':','-');
+            Result.OutputPathAndFileName.Should().Be($"result-{localTime}.csv");
         }
 
         [TestMethod]
@@ -49,9 +43,9 @@ namespace SnippetSpeed.Tests
         public void TheOutputWriteFileShouldReturnWhateverTheUserSetsItAs()
         {
             var path = RandomValue.String();
-            Result.OutputWritePath = path;
+            Result.OutputPathAndFileName = path;
 
-            Result.OutputWritePath.ShouldAllBeEquivalentTo(path);
+            Result.OutputPathAndFileName.ShouldAllBeEquivalentTo(path);
         }
 
         [TestMethod]
