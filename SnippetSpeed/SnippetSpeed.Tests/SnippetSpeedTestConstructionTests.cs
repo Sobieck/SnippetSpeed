@@ -5,7 +5,7 @@ using SnippetSpeed.Implementations;
 namespace SnippetSpeed.Tests
 {
     [TestClass]
-    public class SnippetSpeedTestConstructorTests
+    public class SnippetSpeedTestConstructionTests
     {
         [TestInitialize]
         public void BeforeEach()

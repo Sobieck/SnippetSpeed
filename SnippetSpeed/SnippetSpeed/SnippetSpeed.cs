@@ -44,7 +44,7 @@ namespace SnippetSpeed
             {
                 if(iterator == null)
                 {
-                    iterator = new SnippetIterator();
+                    iterator = new SnippetIterator(Console, new NonBlockingConsole());
                 }
                 return iterator;
             }

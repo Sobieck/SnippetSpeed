@@ -1,11 +1,11 @@
-﻿namespace SnippetSpeed.Interfaces
+﻿using System;
+
+namespace SnippetSpeed.Interfaces
 {
     internal interface INonBlockingConsole
     {
         ulong Iterations { set; }
 
-        int TimeInMillisecondsToRun { set; }
-
-        double MillisecondsElapsed { set; }
+        TimeSpan TimeElapsed { set; }
     }
 }

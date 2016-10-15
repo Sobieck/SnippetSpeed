@@ -1,68 +1,86 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SnippetSpeed.Interfaces;
+using System.Linq;
+using System.Diagnostics;
 
 namespace SnippetSpeed.Implementations
 {
     internal class SnippetIterator : ISnippetIterator
     {
+        private IConsoleWrapper console;
+        private INonBlockingConsole nonBlockingConsole;
 
+        public SnippetIterator(IConsoleWrapper console, INonBlockingConsole nonBlockingConsole)
+        {
+            this.console = console;
+            this.nonBlockingConsole = nonBlockingConsole;
+        }
 
         public ICollection<SnippetSpeedTestResult> Iterate(string usersInput)
         {
-            throw new NotImplementedException();
+            var result = new List<SnippetSpeedTestResult>();
+                                    
+            if (usersInput.ToLower() == "a")
+            {
+                var testNumber = 0;
+                while (testNumber < RegisterOfTypes.DictoraryOfTypes.Count())
+                {
+                    var currentTestToRun = RegisterOfTypes.DictoraryOfTypes.ElementAt(testNumber);
+                    RunTestAndAddResultToList(result, currentTestToRun);
+                    testNumber++;
+                }
+                return result;
+            }
 
-            //if (selection == "a")
-            //{
-            //    var testNumber = 0;
-            //    while (testNumber < RegisterOfTypes.DictoraryOfTypes.Count())
-            //    {
-            //        RunTestScenario(testNumber.ToString());
-            //        testNumber++;
-            //    }
-            //}
-            //else
-            //{
-            //    RunTestScenario(selection);
-            //}
+            var testToRun = RegisterOfTypes.DictoraryOfTypes.FirstOrDefault(x => x.Key.Contains(usersInput));
+
+            int y;
+            if (testToRun.Key == null || int.TryParse(usersInput, out y) == false)
+            {
+                console.WriteLine("There is no record of that test to run. Did you mistype?");
+                return result;
+            }
+            else
+            {
+                RunTestAndAddResultToList(result, testToRun);
+            }
+
+            return result;
         }
 
-        private static SnippetSpeedTestResult RunTestScenario(string selection)
+        private void RunTestAndAddResultToList(List<SnippetSpeedTestResult> result, KeyValuePair<string, SnippetSpeedBase> testToRun)
         {
-            //var dictonaryItemToActOn = RegisterOfTypes.DictoraryOfTypes.First(x => x.Key.Contains(selection));
+            var resultOfTestRun = RunTestScenario(testToRun);
+            result.Add(resultOfTestRun);
+        }
 
-            //Console.WriteLine("\nRunning:" + dictonaryItemToActOn.Key);
+        private SnippetSpeedTestResult RunTestScenario(KeyValuePair<string, SnippetSpeedBase> testCase)
+        {
+            console.WriteLine("\nRunning: " + testCase.Key);
 
-            //ulong count = 0;
+            ulong count = 0;
 
-            //var timeInMillisecondsToRun = 300000; //300000;
+            var timeToRun = SnippetSpeed.Settings.LengthOfOneTestRound;
 
-            //NonBlockingConsole.TimeInMillisecondsToRun = timeInMillisecondsToRun;
+            var testObject = testCase.Value;
 
-            //var sw = Stopwatch.StartNew();
+            var sw = Stopwatch.StartNew();
 
-            //while (sw.Elapsed.TotalMilliseconds < timeInMillisecondsToRun)
-            //{
-            //    dictonaryItemToActOn.Value.Act();
-            //    count++;
-            //    NonBlockingConsole.Iterations = count;
-            //    NonBlockingConsole.MillisecondsElapsed = sw.Elapsed.TotalMilliseconds;
-            //}
+            while (sw.Elapsed < timeToRun)
+            {
+                testObject.Act();
+                count++;
+                nonBlockingConsole.Iterations = count;
+                nonBlockingConsole.TimeElapsed = sw.Elapsed;
+            }
 
-            //create public interface
-
-            //var averageTime = timeInMillisecondsToRun / (float)count;
-
-            //var binaryVersion = File.GetLastWriteTime(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString("yyyy.MM.dd.HHmm");
-
-            //var lineToWrite = string.Format("|{0}|{1}|{2}|{3:N0}|{4:N5}|", binaryVersion, dictonaryItemToActOn.Value.TypeOfTest, dictonaryItemToActOn.Key, count, averageTime);
-
-            //using (var file = new StreamWriter(@"C:\GitHub\SpeedTest\README.md", true))
-            //{
-            //    file.WriteLine(lineToWrite);
-            //}
-
-            return null;
+            return new SnippetSpeedTestResult
+            {
+                Interations = count,
+                NameOfClass = testObject.GetType().Name,
+                TypeOfTest = testObject.TypeOfTest,
+                LengthOfTest = timeToRun
+            };
         }
     }
 }

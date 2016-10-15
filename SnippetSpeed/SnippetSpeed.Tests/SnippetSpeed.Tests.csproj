@@ -76,8 +76,9 @@
   <ItemGroup>
     <Compile Include="RegisterOfTypesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnippetIteratorTests.cs" />
     <Compile Include="SnippetSpeedTests.cs" />
-    <Compile Include="SnippetSpeedTestConstructorTests.cs" />
+    <Compile Include="SnippetSpeedTestConstructionTests.cs" />
     <Compile Include="TypeTests\SnippetSpeedSettingsTests.cs" />
     <Compile Include="TypeTests\TestableSnippetSpeedBaseTests.cs" />
     <Compile Include="TypesForRegistryOfTypesTest\ASpeedTest3.cs" />

@@ -8,9 +8,7 @@ namespace SnippetSpeed
     {
         public ulong Iterations { private get; set; }
 
-        public int TimeInMillisecondsToRun { private get; set; }
-
-        public double MillisecondsElapsed { private get; set; }
+        public TimeSpan TimeElapsed { private get; set; }
 
         public NonBlockingConsole()
         {
@@ -18,7 +16,9 @@ namespace SnippetSpeed
             {
                 while (true)
                 {
-                    var output = string.Format("\rRun: {0:N0} times | MS Left {1:N0}", Iterations, TimeInMillisecondsToRun - MillisecondsElapsed);
+                    var timeLeftInMs = SnippetSpeed.Settings.LengthOfOneTestRound - TimeElapsed;
+
+                    var output = string.Format("\rRun: {0:N0} times | MS Left {1:N0}", Iterations, timeLeftInMs);
                     Console.Out.WriteAsync(output);
                 }
             });

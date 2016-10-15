@@ -6,7 +6,7 @@ namespace SnippetSpeed.Tests.TypesForRegistryOfTypesTest
     {
         public override void Act()
         {
-            throw new NotImplementedException();
+            long value = 4 ^ 30;
         }
     }
 }
