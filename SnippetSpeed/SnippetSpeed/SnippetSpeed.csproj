@@ -48,7 +48,7 @@
     <Compile Include="Interfaces\IResultWriter.cs" />
     <Compile Include="Interfaces\ISnippetIterator.cs" />
     <Compile Include="Implementations\NonBlockingConsole.cs" />
-    <Compile Include="SnippetSpeed.cs" />
+    <Compile Include="SnippetSpeedConsoleInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Implementations\RegisterOfTypes.cs" />
     <Compile Include="SnippetSpeedBase.cs" />

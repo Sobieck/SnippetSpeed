@@ -1,11 +1,12 @@
-﻿using SnippetSpeed.Implementations;
+﻿using SnippetSpeed;
+using SnippetSpeed.Implementations;
 using SnippetSpeed.Interfaces;
 
 using System.Linq;
 
 namespace SnippetSpeed
 {
-    public static class SnippetSpeed
+    public static class SnippetSpeedConsoleInterface
     {
         private static SnippetSpeedSettings settings;
         private static IConsoleWrapper console;

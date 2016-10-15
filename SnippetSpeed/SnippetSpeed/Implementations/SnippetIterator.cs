@@ -60,13 +60,11 @@ namespace SnippetSpeed.Implementations
 
             ulong count = 0;
 
-            var timeToRun = SnippetSpeed.Settings.LengthOfOneTestRound;
+            var timeToRun = SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound;
 
             var testObject = testCase.Value;
 
             var sw = Stopwatch.StartNew();
-                        
-            nonBlockingConsole.Run();
 
             while (sw.Elapsed < timeToRun)
             {

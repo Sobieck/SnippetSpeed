@@ -10,16 +10,19 @@ namespace SnippetSpeed
 
         public TimeSpan TimeElapsed { private get; set; }
 
-        public void Run()
+        public NonBlockingConsole()
         {
             Task.Run(() =>
             {
                 while (true)
                 {
-                    var timeLeftInMs = SnippetSpeed.Settings.LengthOfOneTestRound - TimeElapsed;
+                    var timeLeft = SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound - TimeElapsed;
 
-                    var output = string.Format("\rRun: {0:N0} times | MS Left {1:N0}", Iterations, timeLeftInMs);
-                    Console.Out.WriteAsync(output);
+                    if(Iterations != 0)
+                    {
+                        var output = string.Format("\rRun: {0:N0} times | MS Left {1:mm}:{1:ss}:{1:ff}", Iterations, timeLeft);
+                        Console.Out.WriteAsync(output);
+                    }
                 }
             });
         }

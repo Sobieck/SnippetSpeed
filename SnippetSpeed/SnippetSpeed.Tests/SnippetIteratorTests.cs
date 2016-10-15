@@ -35,7 +35,7 @@ namespace SnippetSpeed.Tests
             console = A.Fake<IConsoleWrapper>();
             nonBlockingConsole = new FakeNonBlockingConsole();
             Sut = new SnippetIterator(console, nonBlockingConsole);
-            SnippetSpeed.Settings.LengthOfOneTestRound = new TimeSpan(0, 0, 0, 0, 5);
+            SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound = new TimeSpan(0, 0, 0, 0, 5);
         }
 
         [TestMethod]
@@ -57,19 +57,12 @@ namespace SnippetSpeed.Tests
         {
             var lengthOfTestInMilliseconds = RandomValue.Byte();
 
-            SnippetSpeed.Settings.LengthOfOneTestRound = new TimeSpan(0, 0, 0, 0, lengthOfTestInMilliseconds);
+            SnippetSpeedConsoleInterface.Settings.LengthOfOneTestRound = new TimeSpan(0, 0, 0, 0, lengthOfTestInMilliseconds);
             var sw = Stopwatch.StartNew();
             RunIterateWithOnlyOneTest();
             sw.Stop();
             sw.ElapsedMilliseconds.Should().BeGreaterOrEqualTo(lengthOfTestInMilliseconds);
             sw.ElapsedMilliseconds.Should().BeLessOrEqualTo(lengthOfTestInMilliseconds + 10);
-        }
-
-        [TestMethod]
-        public void TheNonblockingConsoleShouldBeCalledToRun()
-        {
-            RunIterateWithOnlyOneTest();
-            nonBlockingConsole.CalledRun.Should().BeTrue();
         }
 
         [TestMethod]

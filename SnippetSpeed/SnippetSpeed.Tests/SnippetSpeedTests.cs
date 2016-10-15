@@ -31,16 +31,16 @@ namespace SnippetSpeed.Tests
 
             allTestsMessage = $"(a) ALL TESTS. {lengthOfTests * 3} minute running time";
 
-            SnippetSpeed.Settings = new SnippetSpeedSettings { LengthOfOneTestRound = new TimeSpan(0, lengthOfTests, 0) };
+            SnippetSpeedConsoleInterface.Settings = new SnippetSpeedSettings { LengthOfOneTestRound = new TimeSpan(0, lengthOfTests, 0) };
 
-            SnippetSpeed.Console = consoleWrapper;
-            SnippetSpeed.Iterator = iterator;
-            SnippetSpeed.ResultWriter = resultWriter;
+            SnippetSpeedConsoleInterface.Console = consoleWrapper;
+            SnippetSpeedConsoleInterface.Iterator = iterator;
+            SnippetSpeedConsoleInterface.ResultWriter = resultWriter;
 
             A.CallTo(() => consoleWrapper.ReadLine()).Returns(usersInput);
             A.CallTo(() => iterator.Iterate(usersInput)).Returns(iteratorResults);
 
-            SnippetSpeed.Run();
+            SnippetSpeedConsoleInterface.Run();
         }
 
         [TestMethod]
