@@ -74,12 +74,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CSVWriterTests.cs" />
     <Compile Include="RegisterOfTypesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SnippetIteratorTests.cs" />
     <Compile Include="SnippetSpeedTests.cs" />
     <Compile Include="SnippetSpeedTestConstructionTests.cs" />
     <Compile Include="TypeTests\SnippetSpeedSettingsTests.cs" />
+    <Compile Include="TypeTests\SnippetSpeedTestResultTests.cs" />
     <Compile Include="TypeTests\TestableSnippetSpeedBaseTests.cs" />
     <Compile Include="TypesForRegistryOfTypesTest\ASpeedTest3.cs" />
     <Compile Include="TypesForRegistryOfTypesTest\AbstractSpeedBase1.cs" />

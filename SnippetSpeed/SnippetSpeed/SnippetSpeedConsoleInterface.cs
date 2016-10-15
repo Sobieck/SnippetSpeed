@@ -1,5 +1,4 @@
-﻿using SnippetSpeed;
-using SnippetSpeed.Implementations;
+﻿using SnippetSpeed.Implementations;
 using SnippetSpeed.Interfaces;
 
 using System.Linq;
@@ -19,7 +18,7 @@ namespace SnippetSpeed
             {
                 if(resultWriter == null)
                 {
-                    resultWriter = new CsvResultWriter();
+                    resultWriter = new CsvResultWriter(new FileWrapper());
                 }
                 return resultWriter;
             }

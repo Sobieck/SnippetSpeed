@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="Implementations\ConsoleWrapper.cs" />
     <Compile Include="Implementations\CsvResultWriter.cs" />
+    <Compile Include="Implementations\FileWrapper.cs" />
     <Compile Include="Implementations\SnippetIterator.cs" />
     <Compile Include="Interfaces\IConsoleWrapper.cs" />
+    <Compile Include="Interfaces\IFileWrapper.cs" />
     <Compile Include="Interfaces\INonBlockingConsole.cs" />
     <Compile Include="Interfaces\IResultWriter.cs" />
     <Compile Include="Interfaces\ISnippetIterator.cs" />

@@ -5,21 +5,23 @@ namespace SnippetSpeed.Implementations
 {
     internal class CsvResultWriter : IResultWriter
     {
+        private IFileWrapper fileWrapper;
+
+        public CsvResultWriter(IFileWrapper fileWrapper)
+        {
+            this.fileWrapper = fileWrapper;
+        }
+
         public void Write(ICollection<SnippetSpeedTestResult> results)
         {
+            var writeList = new List<string> { "ClassName,TypeOfTest,Iterations,NanosecondsPerIteration,LengthOfTest(ms)" };
 
-            //create public interface
-
-            //var averageTime = timeInMillisecondsToRun / (float)count;
-
-            //var binaryVersion = File.GetLastWriteTime(System.Reflection.Assembly.GetExecutingAssembly().Location).ToString("yyyy.MM.dd.HHmm");
-
-            //var lineToWrite = string.Format("|{0}|{1}|{2}|{3:N0}|{4:N5}|", binaryVersion, dictonaryItemToActOn.Value.TypeOfTest, dictonaryItemToActOn.Key, count, averageTime);
-
-            //using (var file = new StreamWriter(@"C:\GitHub\SpeedTest\README.md", true))
-            //{
-            //    file.WriteLine(lineToWrite);
-            //}
+            foreach (var result in results) 
+            {
+                writeList.Add($"{result.NameOfClass},{result.TypeOfTest},{result.Interations},{result.AverageTimeOfIterationInNanoseconds},{(int)result.LengthOfTest.TotalMilliseconds}");
+            }
+            
+            fileWrapper.WriteAllLines(SnippetSpeedConsoleInterface.Settings.OutputWritePath, writeList.ToArray());
         }
     }
 }
