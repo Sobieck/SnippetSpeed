@@ -35,7 +35,7 @@ namespace SnippetSpeed.Tests
         public void ItShouldHaveTheRightFileName()
         {
             Result.StartOfExecution = startDateTime;
-            var localTime = startDateTime.ToLocalTime().ToString().Replace(' ', '-');
+            var localTime = startDateTime.ToLocalTime().ToString().Replace(' ', '-').Replace('/','-');
             Result.OutputFileName.Should().Be($"result-{localTime}.csv");
         }
 
