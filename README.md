@@ -5,8 +5,8 @@ This project is just something that I use to quickly test the speed of .Net code
 1. Create a Console application.
 2. Import the SnippetSpeed NuGet package.
 3. In the main method of your console app write the following line: `SnippetSpeed.SnippetSpeedConsoleInterface.Run();`
-4. Create a new class that inherits from either `TestableSnippetBase<>` or `SnippetSpeedBase`
-5. In the `Act()` or `T Act<T>()` method write the Snippet you would like to test.
+4. Create a new class that inherits from either `TestableSnippetBase<T>` or `SnippetSpeedBase`
+5. In the `Act()` or `T Act()` method write the Snippet you would like to test.
 6. Run your application! That is it. A CSV file will be generated in you bin folder at the end of the run. 
 
 ## Optional Configurations
