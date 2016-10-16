@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>SnippetSpeed</id>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <authors>Thomas Sobieck</authors>
     <owners>Thomas Sobieck</owners>
     <licenseUrl>https://github.com/Sobieck00/SnippetSpeed/blob/master/LICENSE</licenseUrl>
@@ -10,7 +10,7 @@
     <iconUrl>https://raw.githubusercontent.com/Sobieck00/SnippetSpeed/master/assets/fastwind.svg.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This is just a project to performance test small pieces of code.</description>
-    <releaseNotes>Version 1</releaseNotes>
+    <releaseNotes>Most of the code is now unit tested and many things are configurable.</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
     <dependencies>
