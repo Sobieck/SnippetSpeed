@@ -18,7 +18,7 @@ This project is just something that I use to quickly test the speed of .Net code
 Create a new object that implements the IResultWriter
 Instantiate that object and assign it to the results writer like so: `SnippetSpeedConsoleInterface.ResultWriter = new MdResultsWriter();`
 
-# Code Examples of IResultWriter implementation
+#### Code Examples of IResultWriter implementation
 
 ```cs
 namespace SpeedTest
@@ -45,7 +45,7 @@ namespace SpeedTest
 
 ```
 
-#Code Examples of Main Method
+####Code Examples of Main Method
 
 ```cs
 public static class Program
